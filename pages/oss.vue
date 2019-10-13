@@ -1,7 +1,7 @@
 <template>
   <div>
     <h2 class="subtitle">
-      Index
+      Open Source
       <p v-for="index in 100">blah {{index}}</p>
     </h2>
   </div>
@@ -11,7 +11,7 @@
     import {Component, Vue} from "vue-property-decorator"
 
     @Component({})
-    export default class Index extends Vue {
+    export default class OpenSource extends Vue {
 
     }
 </script>
