@@ -1,9 +1,9 @@
 <template>
   <div>
-    <h2 class="subtitle">
-      Open Source
-      <p v-for="index in 100">blah {{index}}</p>
+    <h2>
+      Open Source: WIP
     </h2>
+    <p v-for="index in 100">blah {{index}}</p>
   </div>
 </template>
 

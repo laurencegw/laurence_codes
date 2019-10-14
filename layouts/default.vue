@@ -6,7 +6,7 @@
           <page-header/>
         </b-col>
       </b-row>
-      <b-row>
+      <b-row class="m-2">
         <b-col md="10" offset-md="1">
           <nuxt/>
         </b-col>

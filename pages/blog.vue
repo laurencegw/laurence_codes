@@ -1,9 +1,9 @@
 <template>
   <div>
-    <h2 class="subtitle">
-      Blog
-      <p v-for="index in 100">blah {{index}}</p>
+    <h2>
+      Blog: WIP
     </h2>
+    <p v-for="index in 100">blah {{index}}</p>
   </div>
 </template>
 
