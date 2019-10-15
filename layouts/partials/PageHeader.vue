@@ -9,7 +9,7 @@
     </b-row>
     <div v-sticky sticky-z-index="0">
       <b-row class="border-bottom navigation">
-        <b-col v-if="!isMobile()" class="p-l-auto"/>
+        <b-col v-if="!isMobile()" class="p-l-auto navbar-buffer"/>
         <b-col class="nav-link border-left" cols="4" md="1">
           <nuxt-link to="/" tag="button">home</nuxt-link>
         </b-col>
@@ -19,8 +19,7 @@
         <b-col class="nav-link border-left border-right" cols="4" md="1">
           <nuxt-link to="/oss" tag="button">oss</nuxt-link>
         </b-col>
-        <b-col v-if="!isMobile()" class="p-r-auto"/>
-
+        <b-col v-if="!isMobile()" class="p-r-auto navbar-buffer"/>
       </b-row>
     </div>
   </div>
@@ -36,7 +35,9 @@
     }
 </script>
 
-<style>
+<style lang="scss">
+  @import '~/css/main.scss';
+
   .title {
     font-family: 'Quicksand', 'Source Sans Pro', -apple-system, BlinkMacSystemFont,
     'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
@@ -84,8 +85,13 @@
 
 
   .nav-link button:hover {
-  @extend nav-link button;
     background: darkgray;
+  }
+
+  .navbar-buffer {
+    border-top: $color-home-bright;
+    border-top-widows: 2px;
+    border-top-style: solid;
   }
 
 
