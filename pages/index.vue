@@ -4,7 +4,7 @@
       <b-col cols="auto" md="6">
         <h2>Hi</h2>
         <p>
-          I am Laurence. I am a Software Engineer, and I love what I do :)
+          I am a Software Engineer, and I love what I do :)
         </p>
         <p>
           This is where I share my thoughts on Software Engineering philosophies/principals, my Open Source projects and
@@ -15,7 +15,7 @@
         <h2>Find me</h2>
         <b-row>
           <b-col cols="2" md="1">
-            <a class="social-link" href="https://github.com/laurencegw" target="_blank">
+            <a class="social-link" href="https://github.com/lgwillmore" target="_blank">
               <font-awesome-icon :icon="['fab', 'github-square']" size="3x"/>
             </a>
           </b-col>
