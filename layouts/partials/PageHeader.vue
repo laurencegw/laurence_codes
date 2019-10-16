@@ -9,7 +9,7 @@
     </b-row>
     <div v-sticky sticky-z-index="0">
       <b-row class="navigation">
-        <b-col v-if="!isMobile()" class="p-l-auto navbar-buffer border-bottom"/>
+        <b-col v-if="!isMobile()" class="p-l-auto navbar-buffer" :style="navBarBufferStyle"/>
         <b-col class="nav-link" cols="4" md="1" :style="navButtonStyle('index', 'LEFT')">
           <nuxt-link to="/" tag="button">home</nuxt-link>
         </b-col>
@@ -19,7 +19,7 @@
         <b-col class="nav-link" cols="4" md="1" :style="navButtonStyle('oss', 'RIGHT')">
           <nuxt-link to="/oss" tag="button">oss</nuxt-link>
         </b-col>
-        <b-col v-if="!isMobile()" class="p-r-auto navbar-buffer border-bottom"/>
+        <b-col v-if="!isMobile()" class="p-r-auto navbar-buffer" :style="navBarBufferStyle"/>
       </b-row>
     </div>
   </div>
@@ -47,6 +47,20 @@
             return it
         }
 
+        public get activeColor(): string {
+            return this.routeColor(this.rname)
+        }
+
+        public get navBarBufferStyle(): any {
+            return {
+                borderTopColor: this.activeColor,
+                borderTopStyle: "solid",
+                borderBottomStyle: "solid",
+                borderBottomWidth: "1px",
+                borderBottomColor: "lightgray"
+            }
+        }
+
         public isRoutNameActive(routeName: string): boolean {
             return this.rname === routeName
         }
@@ -69,29 +83,32 @@
                 const activeStyle = {
                     ...baseStyle
                 }
-                const activeColor = this.routeColor(navButtonName)
-                console.log(activeColor)
                 switch (position) {
                     case Position.LEFT:
-                        console.log("Active left")
                         return {
                             ...activeStyle,
-                            borderTop: "lightgray",
-                            borderLeft: activeColor,
-                            borderRight: activeColor,
-                            borderBottom: activeColor,
+                            borderTopColor: "lightgray",
+                            borderLeftColor: this.activeColor,
+                            borderRightColor: this.activeColor,
+                            borderBottomColor: this.activeColor,
                         }
                     case Position.MIDDLE:
                         console.log("Active  middle")
                         return {
                             ...activeStyle,
-
+                            borderTopColor: "lightgray",
+                            borderLeftColor: this.activeColor,
+                            borderRightColor: this.activeColor,
+                            borderBottomColor: this.activeColor,
                         }
                     case Position.RIGHT:
                         console.log("Active right")
                         return {
                             ...activeStyle,
-
+                            borderTopColor: "lightgray",
+                            borderLeftColor: this.activeColor,
+                            borderRightColor: this.activeColor,
+                            borderBottomColor: this.activeColor,
                         }
                 }
             } else {
@@ -103,17 +120,36 @@
                     case Position.LEFT:
                         return {
                             ...unactiveStyle,
-
+                            borderTopColor: this.activeColor,
+                            borderLeftColor: "transparent",
+                            borderRightColor: "transparent",
+                            borderBottomColor: "lightgray",
+                            borderBottomWidth: "1px",
+                            borderRightWidth: "0px",
+                            borderLeftWidth: "0px"
+                            // // borderRightStyle: "none"
                         }
                     case Position.MIDDLE:
                         return {
                             ...unactiveStyle,
-
+                            borderTopColor: this.activeColor,
+                            borderLeftColor: "transparent",
+                            borderRightColor: "transparent",
+                            borderBottomColor: "lightgray",
+                            borderBottomWidth: "1px",
+                            borderRightWidth: "0px",
+                            borderLeftWidth: "0px"
                         }
                     case Position.RIGHT:
                         return {
                             ...unactiveStyle,
-
+                            borderTopColor: this.activeColor,
+                            borderLeftColor: "transparent",
+                            borderRightColor: "transparent",
+                            borderBottomColor: "lightgray",
+                            borderBottomWidth: "1px",
+                            borderRightWidth: "0px",
+                            borderLeftWidth: "0px"
                         }
                 }
             }
@@ -157,7 +193,7 @@
   }
 
   .nav-link button {
-    background: white;
+    background: transparent;
     border: 0;
     padding: 0;
     margin: 0;
@@ -173,12 +209,6 @@
 
   .nav-link button:hover {
     background: darkgray;
-  }
-
-  .navbar-buffer {
-    border-top: $color-home-bright;
-    border-top-widows: 2px;
-    border-top-style: solid;
   }
 
 
