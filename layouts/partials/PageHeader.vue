@@ -8,18 +8,18 @@
       <b-col class="p-r-auto"/>
     </b-row>
     <div v-sticky sticky-z-index="0">
-      <b-row class="border-bottom navigation">
-        <b-col v-if="!isMobile()" class="p-l-auto navbar-buffer"/>
-        <b-col class="nav-link border-left" cols="4" md="1">
+      <b-row class="navigation">
+        <b-col v-if="!isMobile()" class="p-l-auto navbar-buffer border-bottom"/>
+        <b-col class="nav-link" cols="4" md="1" :style="navButtonStyle('index', 'LEFT')">
           <nuxt-link to="/" tag="button">home</nuxt-link>
         </b-col>
-        <b-col class="nav-link border-left" cols="4" md="1">
+        <b-col class="nav-link" cols="4" md="1" :style="navButtonStyle('blog', 'MIDDLE')">
           <nuxt-link to="/blog" tag="button">blog</nuxt-link>
         </b-col>
-        <b-col class="nav-link border-left border-right" cols="4" md="1">
+        <b-col class="nav-link" cols="4" md="1" :style="navButtonStyle('oss', 'RIGHT')">
           <nuxt-link to="/oss" tag="button">oss</nuxt-link>
         </b-col>
-        <b-col v-if="!isMobile()" class="p-r-auto navbar-buffer"/>
+        <b-col v-if="!isMobile()" class="p-r-auto navbar-buffer border-bottom"/>
       </b-row>
     </div>
   </div>
@@ -27,10 +27,97 @@
 
 <script lang="ts">
     import IsMobileMixin from "~/components/mixins/IsMobileMixin"
+    import ConstantsMixin from "~/components/mixins/ConstantsMixin"
     import {Mixins, Component} from "vue-mixin-decorator"
 
+    interface IMixinInterface extends IsMobileMixin, ConstantsMixin {
+    }
+
+    enum Position {
+        LEFT,
+        MIDDLE,
+        RIGHT
+    }
+
     @Component({})
-    export default class PageHeader extends Mixins<IsMobileMixin>(IsMobileMixin) {
+    export default class PageHeader extends Mixins<IMixinInterface>(IsMobileMixin, ConstantsMixin) {
+
+        public get rname(): string {
+            let it = this.$route.name || "unknown"
+            return it
+        }
+
+        public isRoutNameActive(routeName: string): boolean {
+            return this.rname === routeName
+        }
+
+        public routeColor(name: string): string {
+            let routeNameColors = new Map([
+                ["index", this.colors.home_bright],
+                ["blog", this.colors.blog_bright],
+                ["oss", this.colors.oss_bright],
+            ])
+            return routeNameColors.get(name) || "#47494e"
+        }
+
+        public navButtonStyle(navButtonName: string, positionString: String): any {
+            const position = Position[positionString as keyof typeof Position]
+            const baseStyle = {
+                borderStyle: 'solid',
+            }
+            if (this.isRoutNameActive(navButtonName)) {
+                const activeStyle = {
+                    ...baseStyle
+                }
+                const activeColor = this.routeColor(navButtonName)
+                console.log(activeColor)
+                switch (position) {
+                    case Position.LEFT:
+                        console.log("Active left")
+                        return {
+                            ...activeStyle,
+                            borderTop: "lightgray",
+                            borderLeft: activeColor,
+                            borderRight: activeColor,
+                            borderBottom: activeColor,
+                        }
+                    case Position.MIDDLE:
+                        console.log("Active  middle")
+                        return {
+                            ...activeStyle,
+
+                        }
+                    case Position.RIGHT:
+                        console.log("Active right")
+                        return {
+                            ...activeStyle,
+
+                        }
+                }
+            } else {
+                const unactiveStyle = {
+                    ...baseStyle,
+                    borderColor: "#47494e",
+                }
+                switch (position) {
+                    case Position.LEFT:
+                        return {
+                            ...unactiveStyle,
+
+                        }
+                    case Position.MIDDLE:
+                        return {
+                            ...unactiveStyle,
+
+                        }
+                    case Position.RIGHT:
+                        return {
+                            ...unactiveStyle,
+
+                        }
+                }
+            }
+        }
 
     }
 </script>

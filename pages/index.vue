@@ -1,7 +1,7 @@
 <template>
   <div>
     <b-row>
-      <b-col cols="auto" md="6">
+      <b-col cols="auto" md="9">
         <h2>Hi</h2>
         <p>
           I am a Software Engineer, and I love what I do.
@@ -23,20 +23,23 @@
       <b-col>
         <h2>Find me</h2>
         <b-row>
-          <b-col cols="2" md="1">
+          <b-col cols="2" md="auto">
             <a class="social-link" href="https://github.com/lgwillmore" target="_blank">
               <font-awesome-icon :icon="['fab', 'github-square']" size="3x"/>
             </a>
           </b-col>
-          <b-col cols="2" md="1">
+          <b-col cols="2" md="auto">
             <a class="social-link" href="https://www.linkedin.com/in/laurence-willmore-477a8472/" target="_blank">
               <font-awesome-icon :icon="['fab', 'linkedin']" size="3x"/>
             </a>
           </b-col>
-          <b-col cols="2" md="1">
+          <b-col cols="2" md="auto">
             <a class="social-link" href="https://twitter.com/LGWillmore" target="_blank">
               <font-awesome-icon :icon="['fab', 'twitter-square']" size="3x"/>
             </a>
+          </b-col>
+          <b-col md="auto" class="mr-auto">
+
           </b-col>
         </b-row>
       </b-col>
