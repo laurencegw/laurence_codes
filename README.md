@@ -1,6 +1,6 @@
 # laurence_codes
 
-> Blog
+> My personal sight built with nuxt (vue)
 
 ## Build Setup
 

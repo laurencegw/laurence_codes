@@ -39,6 +39,8 @@
         RIGHT
     }
 
+    const highlightBorderWidth = "3px"
+
     @Component({})
     export default class PageHeader extends Mixins<IMixinInterface>(IsMobileMixin, ConstantsMixin) {
 
@@ -55,6 +57,7 @@
             return {
                 borderTopColor: this.activeColor,
                 borderTopStyle: "solid",
+                borderTopWidth: highlightBorderWidth,
                 borderBottomStyle: "solid",
                 borderBottomWidth: "1px",
                 borderBottomColor: "lightgray"
@@ -83,33 +86,15 @@
                 const activeStyle = {
                     ...baseStyle
                 }
-                switch (position) {
-                    case Position.LEFT:
-                        return {
-                            ...activeStyle,
-                            borderTopColor: "lightgray",
-                            borderLeftColor: this.activeColor,
-                            borderRightColor: this.activeColor,
-                            borderBottomColor: this.activeColor,
-                        }
-                    case Position.MIDDLE:
-                        console.log("Active  middle")
-                        return {
-                            ...activeStyle,
-                            borderTopColor: "lightgray",
-                            borderLeftColor: this.activeColor,
-                            borderRightColor: this.activeColor,
-                            borderBottomColor: this.activeColor,
-                        }
-                    case Position.RIGHT:
-                        console.log("Active right")
-                        return {
-                            ...activeStyle,
-                            borderTopColor: "lightgray",
-                            borderLeftColor: this.activeColor,
-                            borderRightColor: this.activeColor,
-                            borderBottomColor: this.activeColor,
-                        }
+                return {
+                    ...activeStyle,
+                    borderTopColor: "lightgray",
+                    borderLeftColor: this.activeColor,
+                    borderLeftWidth: highlightBorderWidth,
+                    borderRightColor: this.activeColor,
+                    borderRightWidth: highlightBorderWidth,
+                    borderBottomColor: this.activeColor,
+                    borderBottomWidth: highlightBorderWidth,
                 }
             } else {
                 const unactiveStyle = {
