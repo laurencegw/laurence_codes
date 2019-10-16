@@ -16,12 +16,13 @@
     }
 </script>
 
-<style>
-  .subtitle {
-    font-weight: 300;
-    font-size: 42px;
-    color: #526488;
-    word-spacing: 5px;
-    padding-bottom: 15px;
+<style lang="scss" scoped>
+  @import '~/css/main.scss';
+
+  $page-highlight-color: $color-oss-bright;
+
+  h2 {
+    text-decoration: underline;
+    text-decoration-color: $page-highlight-color;
   }
 </style>

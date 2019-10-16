@@ -11,13 +11,19 @@
           any other code related snippets that I find interesting or useful.
         </p>
         <p>
-          In general, I am a fan of agile, clean code and test driven development. I realize this is probably a bit of a cliche, but I do try to stay as disciplined as I can when it comes to these governing principals. I also do my best to promote these ideas with the people I work with.
+          In general, I am a fan of agile, clean code and test driven development. I realize this is probably a bit of a
+          cliche, but I do try to stay as disciplined as I can when it comes to these governing principals. I also do my
+          best to promote these ideas with the people I work with.
         </p>
         <p>
-          In terms of specialization, I am happy to work across the stack in a polyglot environment. My sharpest tools at the moment are kotlin, java, python, typescript and vuejs. While I have said that I am happy in a polyglot environment, when it comes to languages, I will always opt for a typed language and preferably a null safe one... I am loving kotlin.
+          In terms of specialization, I am happy to work across the stack in a polyglot environment. My sharpest tools
+          at the moment are kotlin, java, python, typescript and vuejs. While I have said that I am happy in a polyglot
+          environment, when it comes to languages, I will always opt for a typed language and preferably a null safe
+          one... I am loving kotlin.
         </p>
         <p>
-          This little personal page project is a new one. I am hoping it will be a driver for me to complete and cleanup a few of my side projects. Let us hope hey :D
+          This little personal page project is a new one. I am hoping it will be a driver for me to complete and cleanup
+          a few of my side projects. Let us hope hey :D
         </p>
       </b-col>
       <b-col>
@@ -70,14 +76,10 @@
     }
 </script>
 
-<style>
-  .subtitle {
-    font-weight: 300;
-    font-size: 42px;
-    color: #526488;
-    word-spacing: 5px;
-    padding-bottom: 15px;
-  }
+<style lang="scss" scoped>
+  @import '~/css/main.scss';
+
+  $page-highlight-color: $color-home-bright;
 
   .social-link {
     color: #47494e;
@@ -86,4 +88,10 @@
   .social-link:hover {
     color: #7F828B;
   }
+
+  h2 {
+    text-decoration: underline;
+    text-decoration-color: $page-highlight-color;
+  }
+
 </style>

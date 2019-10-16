@@ -101,41 +101,15 @@
                     ...baseStyle,
                     borderColor: "#47494e",
                 }
-                switch (position) {
-                    case Position.LEFT:
-                        return {
-                            ...unactiveStyle,
-                            borderTopColor: this.activeColor,
-                            borderLeftColor: "transparent",
-                            borderRightColor: "transparent",
-                            borderBottomColor: "lightgray",
-                            borderBottomWidth: "1px",
-                            borderRightWidth: "0px",
-                            borderLeftWidth: "0px"
-                            // // borderRightStyle: "none"
-                        }
-                    case Position.MIDDLE:
-                        return {
-                            ...unactiveStyle,
-                            borderTopColor: this.activeColor,
-                            borderLeftColor: "transparent",
-                            borderRightColor: "transparent",
-                            borderBottomColor: "lightgray",
-                            borderBottomWidth: "1px",
-                            borderRightWidth: "0px",
-                            borderLeftWidth: "0px"
-                        }
-                    case Position.RIGHT:
-                        return {
-                            ...unactiveStyle,
-                            borderTopColor: this.activeColor,
-                            borderLeftColor: "transparent",
-                            borderRightColor: "transparent",
-                            borderBottomColor: "lightgray",
-                            borderBottomWidth: "1px",
-                            borderRightWidth: "0px",
-                            borderLeftWidth: "0px"
-                        }
+                return {
+                    ...unactiveStyle,
+                    borderTopColor: this.activeColor,
+                    borderLeftColor: "transparent",
+                    borderRightColor: "transparent",
+                    borderBottomColor: "lightgray",
+                    borderBottomWidth: "1px",
+                    borderRightWidth: "0px",
+                    borderLeftWidth: "0px"
                 }
             }
         }
